@@ -21,7 +21,7 @@
                 state: started
                 enabled: yes
 
-            - name: Installation of required packages by docker
+            - name: Installation of required for docker pakages
               command: "pip3 install docker"
 
             - name: Pulling httpd image from docker reposiorty
@@ -31,16 +31,17 @@
 
             - name: creating a folder 
               file:
-                path: "/root/mywebpage"
+                path: /mywebpage
                 state: directory
 
             - name: Copy html file form controller node to managed node
               copy:
-                src: "/root/mywebpage/index.html"
-                dest: "/root/mywebpage/"
-                remote_src: yes
-               # owner: root
-               # group: root
+                remote_src: true
+                src: "index.html"
+                dest: "/mywebpage/"
+                
+                owner: root
+                group: root
                #s mode: '0644'
 
             - name: Launching HTTPD container and Exposing
@@ -50,4 +51,4 @@
                 state: started
                 exposed_ports: "80"
                 ports: "8051:80"
-                volumes: "/webpage:/usr/local/apache2/htdocs/"
+                volumes: "/mywebpage:/usr/local/apache2/htdocs/"
