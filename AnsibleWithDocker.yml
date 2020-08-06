@@ -32,7 +32,7 @@
 
             - name: Copy html file form controller node to managed node
               copy:
-                src: "index.html"
+                src: "/root/index.html"
                 dest: "/root/mywebpage"
             - name: Launching HTTPD container and Exposing
               docker_container:
