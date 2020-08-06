@@ -2,9 +2,9 @@
     vars: 
             - dockerurl: "https://download.docker.com/linux/centos/7/x86_64/stable/"
   tasks:
-            - name: Creation of yum repo in cloud
+            - name: "Creation of yum repo in cloud"
               yum_repository:
-                name: RiteshDocker
+                name: "RiteshDocker"
                 baseurl: "{{ dockerurl }}"
                 description : "My docker repository"
                 gpgcheck: 0
