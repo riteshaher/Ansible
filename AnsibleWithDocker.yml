@@ -4,7 +4,7 @@
     tasks:
             - name: Creation of yum repo in cloud
               yum_repository:
-                name: RiteshDocker
+                name: docker
                 baseurl: "{{ url }}"
                 description : My docker repository
                 gpgcheck: 0
@@ -19,8 +19,10 @@
                 name: docker
                 state: started
                 enabled: yes
+
             - name: Installation of required packages by docker
               command: "pip3 install docker"
+
             - name: Pulling httpd image from docker reposiorty
               docker_image:
                 name: httpd
@@ -33,12 +35,13 @@
 
             - name: Copy html file form controller node to managed node
               copy:
-                src: "index.html"
+                src: "/root/index.html"
                 dest: "/root/mywebpage/"
                 remote_src: yes
                # owner: root
                # group: root
                #s mode: '0644'
+
             - name: Launching HTTPD container and Exposing
               docker_container:
                 name: "HTTPD Container"
