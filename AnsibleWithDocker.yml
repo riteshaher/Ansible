@@ -35,7 +35,7 @@
 
             - name: Copy html file form controller node to managed node
               copy:
-                src: "/root/index.html"
+                src: "/root/mywebpage/index.html"
                 dest: "/root/mywebpage/"
                 remote_src: yes
                # owner: root
