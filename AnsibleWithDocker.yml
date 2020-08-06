@@ -1,7 +1,7 @@
   - hosts: all
     vars: 
             - url: "https://download.docker.com/linux/centos/7/x86_64/stable/"
-  tasks:
+    tasks:
             - name: Creation of yum repo in cloud
               yum_repository:
                 name: RiteshDocker
