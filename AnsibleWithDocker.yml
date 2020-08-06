@@ -14,7 +14,7 @@
                 state: present
             - name: Starting docker  Service permanently
               service:
-                name: Docker
+                name: docker
                 state: started
                 enabled: yes
             - name: Pulling httpd image from docker reposiorty
